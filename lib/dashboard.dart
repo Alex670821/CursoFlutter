@@ -1,3 +1,4 @@
+import 'package:curso_basico_flutter/widget/pastel_chart.dart';
 import 'package:flutter/material.dart';
 
 class Dashboard extends StatelessWidget {
@@ -36,70 +37,89 @@ class Dashboard extends StatelessWidget {
       ),
       body: Container(
         padding: const EdgeInsets.symmetric(horizontal: 20.0),
-        child: Column(children: [
-          Container(
-            decoration: BoxDecoration(
-              color: Colors.redAccent,
-              borderRadius: BorderRadius.circular(25),
-            ),
-            width: ancho,
-            height: 200,
-            child: Row(
-              children: [
-                // Image.network(
-                //   "https://www.w3schools.com/w3images/avatar2.png",
-                //   width: 100,
-                //   height: 100,)
-                Container(
-                  width: 75,
-                  height: 75,
-                  child: const CircleAvatar(
-                    backgroundImage: NetworkImage(
-                        "https://www.w3schools.com/w3images/avatar2.png"),
-                  ),
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          Stack(
+            alignment: const Alignment(-1.0, 0.1),
+            children: [
+              Container(
+                margin: const EdgeInsets.only(left: 30),
+                decoration: BoxDecoration(
+                  color: Colors.redAccent,
+                  borderRadius: BorderRadius.circular(25),
                 ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.center,
+                width: alto,
+                height: 150,
+                child: Row(
                   children: [
-                    Text(
-                      "Junior Wachapa",
-                      style: style_titles,
-                      textAlign: TextAlign.left,
-                    ),
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        const Icon(Icons.card_giftcard),
-                        const SizedBox(
-                          width: 10,
-                        ),
-                        Text(
-                          "SI=H-00054157624",
-                          style: style_titles,
-                        ),
-                        SizedBox(
-                          width: 25,
-                        ),
-                        Text(
-                          "12.50",
-                          style: style_titles,
-                        ),
-                      ],
-                    ),
-                    const Text(
-                      "Ver perfil",
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 18,
+                    Padding(
+                      padding: const EdgeInsets.only(left: 50.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            "Junior Wachapa",
+                            style: style_titles,
+                            textAlign: TextAlign.left,
+                          ),
+                          Row(
+                            children: [
+                              const Icon(Icons.card_giftcard),
+                              const SizedBox(
+                                width: 10,
+                              ),
+                              Row(
+                                children: [
+                                  Text(
+                                    "SI=H-00054157624",
+                                    style: style_titles,
+                                  ),
+                                  SizedBox(
+                                    width: 50,
+                                  ),
+                                  Text(
+                                    "12.50",
+                                    style: style_titles,
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                          const Text(
+                            "Ver perfil",
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 18,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ],
-                )
-              ],
+                ),
+              ),
+              Container(
+                width: 75,
+                height: 75,
+                child: const CircleAvatar(
+                  backgroundImage: NetworkImage(
+                      "https://www.w3schools.com/w3images/avatar2.png"),
+                ),
+              ),
+            ],
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 20.0, bottom: 10.0),
+            child: Text(
+              "Resumen Septiembre 2022",
+              style: TextStyle(color: Colors.grey),
             ),
-          )
+          ),
+          PastelChart(
+              saldoMesActual: 12.0,
+              regarcaMesActual: 30.0,
+              pasajemesActual: 45.0,
+              saldoMesAnterior: 11.0)
         ]),
       ),
     );
